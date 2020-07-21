@@ -181,7 +181,7 @@ export function printMessage(fileName: string, exportMap: ExportMap, messageDesc
             canBeUndefined = true;
           }
         }
-        const fieldObjectName = normaliseFieldObjectName(camelCaseName);
+        const fieldObjectName = normaliseFieldObjectName(field.getName());
         toObjectType.printIndentedLn(`${fieldObjectName}${canBeUndefined ? "?" : ""}: ${fieldObjectType},`);
         printer.printIndentedLn(`get${withUppercase}(): ${exportType}${canBeUndefined ? " | undefined" : ""};`);
         printer.printIndentedLn(`set${withUppercase}(value${type === MESSAGE_TYPE ? "?" : ""}: ${exportType}): void;`);
